@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Chúc mừng sinh nhật!</title>
+  <style>
+    body { margin:0; background:#111; color:#fff; font-family:'Segoe UI', sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+    #message { text-align:center; opacity:0; transform: scale(0.8); transition: all 1s ease-in-out; }
+    #message.show { opacity:1; transform: scale(1); }
+    #btn { padding:10px 20px; background:#e91e63; border:none; color:#fff; font-size:1.2em; border-radius:5px; cursor:pointer; }
+    .sparkle { position: absolute; width:4px; height:4px; background:rgba(255,255,255,0.8); border-radius:50%; animation: spark 1s infinite ease-out; }
+    @keyframes spark {
+      0% {opacity:1; transform: translate(0,0) scale(1);}
+      100% {opacity:0; transform: translate(20px,-20px) scale(0);}
+    }
+  </style>
+</head>
+<body>
+
+<button id="btn">Scan QR / Click để thấy lời chúc</button>
+<div id="message">
+  <h1>Chúc mừng sinh nhật bthuy!</h1>
+  <p>❤️ tuổi mới rực rỡ ❤️</p>
+</div>
+
+<script>
+  const btn = document.getElementById('btn');
+  const msg = document.getElementById('message');
+
+  btn.addEventListener('click', () => {
+    msg.classList.add('show');
+    // Tạo hiệu ứng lấp lánh ngẫu nhiên
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement('div');
+      s.classList.add('sparkle');
+      s.style.left = Math.random()*100 + 'vw';
+      s.style.top = Math.random()*100 + 'vh';
+      s.style.animationDelay = Math.random() + 's';
+      document.body.appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
